@@ -144,7 +144,7 @@ namespace P2_AP1.UI.Registros
             MyerrorProvider.Clear();
 
             int id;
-            id = Convert.ToInt32(IdnumericUpDown1.Value);
+            id = Convert.ToInt32(IdnumericUpDown1.Value); 
             Contexto db = new Contexto();
 
             Categorias categorias = new Categorias();
