@@ -1,6 +1,6 @@
 ﻿namespace P2_AP1.UI.Registros
 {
-    partial class rCategorias
+    partial class rServicios
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.DescripcionrichTextBox = new System.Windows.Forms.RichTextBox();
             this.IdnumericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Buscrabutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.MyerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.NombretextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -60,14 +60,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "CategoriaId";
             // 
-            // DescripcionrichTextBox
-            // 
-            this.DescripcionrichTextBox.Location = new System.Drawing.Point(82, 67);
-            this.DescripcionrichTextBox.Name = "DescripcionrichTextBox";
-            this.DescripcionrichTextBox.Size = new System.Drawing.Size(237, 96);
-            this.DescripcionrichTextBox.TabIndex = 2;
-            this.DescripcionrichTextBox.Text = "";
-            // 
             // IdnumericUpDown1
             // 
             this.IdnumericUpDown1.Location = new System.Drawing.Point(82, 27);
@@ -78,7 +70,7 @@
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::P2_AP1.Properties.Resources.icons8_eliminar_24;
-            this.Eliminarbutton.Location = new System.Drawing.Point(244, 169);
+            this.Eliminarbutton.Location = new System.Drawing.Point(214, 171);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 62);
             this.Eliminarbutton.TabIndex = 6;
@@ -90,7 +82,7 @@
             // Guardarbutton
             // 
             this.Guardarbutton.Image = global::P2_AP1.Properties.Resources.icons8_guardar_30;
-            this.Guardarbutton.Location = new System.Drawing.Point(163, 169);
+            this.Guardarbutton.Location = new System.Drawing.Point(133, 171);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(75, 62);
             this.Guardarbutton.TabIndex = 7;
@@ -115,7 +107,7 @@
             // Nuevobutton
             // 
             this.Nuevobutton.Image = global::P2_AP1.Properties.Resources.icons8_agregar_archivo_32;
-            this.Nuevobutton.Location = new System.Drawing.Point(82, 169);
+            this.Nuevobutton.Location = new System.Drawing.Point(52, 171);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 62);
             this.Nuevobutton.TabIndex = 4;
@@ -128,20 +120,27 @@
             // 
             this.MyerrorProvider.ContainerControl = this;
             // 
-            // rCategorias
+            // NombretextBox
+            // 
+            this.NombretextBox.Location = new System.Drawing.Point(82, 67);
+            this.NombretextBox.Name = "NombretextBox";
+            this.NombretextBox.Size = new System.Drawing.Size(120, 20);
+            this.NombretextBox.TabIndex = 9;
+            // 
+            // rServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 258);
+            this.Controls.Add(this.NombretextBox);
             this.Controls.Add(this.Buscrabutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Nuevobutton);
             this.Controls.Add(this.IdnumericUpDown1);
-            this.Controls.Add(this.DescripcionrichTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "rCategorias";
+            this.Name = "rServicios";
             this.Text = "rAnonimo";
             this.Load += new System.EventHandler(this.RAnonimo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown1)).EndInit();
@@ -155,12 +154,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox DescripcionrichTextBox;
         private System.Windows.Forms.NumericUpDown IdnumericUpDown1;
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Buscrabutton;
         private System.Windows.Forms.ErrorProvider MyerrorProvider;
+        private System.Windows.Forms.TextBox NombretextBox;
     }
 }

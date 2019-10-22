@@ -13,21 +13,21 @@ using P2_AP1.Entidades;
 
 namespace P2_AP1.UI.Registros
 {
-    public partial class rCategorias : Form
+    public partial class rServicios : Form
     {
-        RepositorioBase<Categorias> GenericCategorias;
-        public rCategorias()
+        RepositorioBase<Servicios> GenericCategorias;
+        public rServicios()
         {
             InitializeComponent();
-            GenericCategorias = new RepositorioBase<Categorias>();
+            GenericCategorias = new RepositorioBase<Servicios>();
         }
-        private Categorias LlenaClase()
+        private Servicios LlenaClase()
         {
-            Categorias categorias = new Categorias();
-            categorias.CategoriaId = Convert.ToInt32(IdnumericUpDown1.Value);
-            categorias.Descripcion = DescripcionrichTextBox.Text;
+            Servicios servicios = new Servicios();
+            servicios.ServiciosId = Convert.ToInt32(IdnumericUpDown1.Value);
+           servicios.Nombres = NombretextBox.Text;
 
-            return categorias;
+            return servicios;
         }
         private bool Validar()
         {
@@ -35,19 +35,19 @@ namespace P2_AP1.UI.Registros
             bool paso = true;
 
 
-            if (string.IsNullOrWhiteSpace(DescripcionrichTextBox.Text))
+            if (string.IsNullOrWhiteSpace(NombretextBox.Text))
             {
-                MyerrorProvider.SetError(DescripcionrichTextBox, "El campo no puede estar vacio");
-                DescripcionrichTextBox.Focus();
+                MyerrorProvider.SetError(NombretextBox, "El campo no puede estar vacio");
+                NombretextBox.Focus();
                 paso = false;
             }
 
             return paso;
         }
-        private void LlenaCampos(Categorias categorias)
+        private void LlenaCampos(Servicios servicios)
         {
-            IdnumericUpDown1.Value = categorias.CategoriaId;
-            DescripcionrichTextBox.Text = categorias.Descripcion;
+            IdnumericUpDown1.Value = servicios.ServiciosId;
+            NombretextBox.Text = servicios.Nombres;
         }
 
 
@@ -74,7 +74,7 @@ namespace P2_AP1.UI.Registros
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            Categorias categorias = new Categorias();
+            Servicios categorias = new Servicios();
             bool paso = false;
 
             if (!Validar())
@@ -109,11 +109,11 @@ namespace P2_AP1.UI.Registros
         private void Limpiar()
         {
             IdnumericUpDown1.Value = 0;
-            DescripcionrichTextBox.Text = string.Empty;
+            NombretextBox.Text = string.Empty;
         }
         private bool ExisteEnBaseDeDatos()
         {
-            Categorias categorias = GenericCategorias.Buscar((int)IdnumericUpDown1.Value);
+            Servicios categorias = GenericCategorias.Buscar((int)IdnumericUpDown1.Value);
             return (categorias != null);
         }
 
@@ -121,8 +121,8 @@ namespace P2_AP1.UI.Registros
         {
             int id;
             id = Convert.ToInt32(IdnumericUpDown1.Value);
-            Categorias categorias= new Categorias();
-            GenericCategorias = new RepositorioBase<Categorias>();
+            Servicios categorias= new Servicios();
+            GenericCategorias = new RepositorioBase<Servicios>();
 
             Limpiar();
 
@@ -147,7 +147,7 @@ namespace P2_AP1.UI.Registros
             id = Convert.ToInt32(IdnumericUpDown1.Value); 
             Contexto db = new Contexto();
 
-            Categorias categorias = new Categorias();
+            Servicios categorias = new Servicios();
 
             Limpiar();
 

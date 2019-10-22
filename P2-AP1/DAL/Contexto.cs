@@ -10,7 +10,8 @@ namespace P2_AP1.DAL
 {
     public class Contexto: DbContext
     {
-        public DbSet<Categorias> Categorias { get; set; }
+        public DbSet<Servicios> Servicio { get; set; }
+        public DbSet<Factura> Factura { get; set; }
         public Contexto() : base("ConStr")
         {
 

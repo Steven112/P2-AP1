@@ -21,13 +21,13 @@ namespace P2_AP1
 
         private void CategoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form Articulo = new rCategorias();
-            Articulo.Show();
+            Form Factura = new rFactura();
+            Factura.Show();
         }
 
         private void CategoriasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form categorias = new rCategorias();
+            Form categorias = new rServicios();
             categorias.Show();
         }
     }

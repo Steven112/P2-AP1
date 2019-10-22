@@ -57,9 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\IRepository.cs" />
+    <Compile Include="BLL\FacturaBLL.cs" />
     <Compile Include="BLL\RepositorioBase.cs" />
     <Compile Include="DAL\Contexto.cs" />
-    <Compile Include="Entidades\Categorias.cs" />
+    <Compile Include="Entidades\Detalle.cs" />
+    <Compile Include="Entidades\Factura.cs" />
+    <Compile Include="Entidades\Servicios.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,17 +83,17 @@
     <Compile Include="UI\Consultas\cCategorias.Designer.cs">
       <DependentUpon>cCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Registros\rCategorias.cs">
+    <Compile Include="UI\Registros\rServicios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Registros\rCategorias.Designer.cs">
-      <DependentUpon>rCategorias.cs</DependentUpon>
+    <Compile Include="UI\Registros\rServicios.Designer.cs">
+      <DependentUpon>rServicios.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Registros\rArticulo.cs">
+    <Compile Include="UI\Registros\rFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Registros\rArticulo.Designer.cs">
-      <DependentUpon>rArticulo.cs</DependentUpon>
+    <Compile Include="UI\Registros\rFactura.Designer.cs">
+      <DependentUpon>rFactura.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -111,11 +114,11 @@
     <EmbeddedResource Include="UI\Consultas\cCategorias.resx">
       <DependentUpon>cCategorias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Registros\rCategorias.resx">
-      <DependentUpon>rCategorias.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Registros\rServicios.resx">
+      <DependentUpon>rServicios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Registros\rArticulo.resx">
-      <DependentUpon>rArticulo.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Registros\rFactura.resx">
+      <DependentUpon>rFactura.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -148,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-eliminar-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-nuevo-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
