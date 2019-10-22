@@ -37,9 +37,21 @@ namespace P2_AP1.UI.Registros
             List<Servicios> Lista1 = Generic.GetList(p => true);
             ServicioscomboBox.DataSource = Lista1;
             ServicioscomboBox.DisplayMember = "Nombres";
-           // ServicioscomboBox.SelectedValue = "ServiciosId";
+            ServicioscomboBox.ValueMember = "ServiciosId";
 
 
+        }
+        public void Limpiar()
+        {
+            IdnumericUpDown.Value = 0;
+            EstudiantetextBox.Text = string.Empty;
+            ServicioscomboBox.SelectedValue = -1;
+            FechadateTimePicker.Value = DateTime.Now;
+            CantidadtextBox.Text = string.Empty;
+            PreciotextBox.Text = string.Empty;
+            ImportetextBox.Text = string.Empty;
+            this.DetalleFac =new List<Detalle>();
+            CargarGrid();
         }
 
         public Factura LlenaClase()
@@ -49,12 +61,7 @@ namespace P2_AP1.UI.Registros
             factura.Fecha = FechadateTimePicker.Value;
             factura.Estudiante = EstudiantetextBox.Text;
             factura.Detalle = this.DetalleFac;
-            factura.Cantidad = Convert.ToInt32(CantidadtextBox.Text);
-            decimal total = Convert.ToInt32(CantidadtextBox.Text) * Convert.ToDecimal(PreciotextBox.Text);
-            factura.Precio = Convert.ToDecimal(PreciotextBox.Text);
-            ImportetextBox.Text= Convert.ToString(total);
-            factura.Importe= Convert.ToDecimal(ImportetextBox.Text);
-            CargarGrid();
+            factura.ServicioId= Convert.ToInt32(ServicioscomboBox.SelectedValue);
 
             return factura;
         }
@@ -71,12 +78,12 @@ namespace P2_AP1.UI.Registros
                 paso = false;
             }
 
-            /*if (EstudiantetextBox.Text = string.Empty)
+            if (string.IsNullOrWhiteSpace(EstudiantetextBox.Text))
             {
-                MyerrorProvider.SetError(FacturadataGridView, "El campo no puede estar vacio");
-                ServicioscomboBox.Focus();
+                MyerrorProvider.SetError(EstudiantetextBox, "Debe agregar algun estudiante");
+                EstudiantetextBox.Focus();
                 paso = false;
-            }*/
+            }
 
             return paso;
         }
@@ -91,10 +98,8 @@ namespace P2_AP1.UI.Registros
             IdnumericUpDown.Value = factura.FacturaId;
             FechadateTimePicker.Value = factura.Fecha;
             EstudiantetextBox.Text = factura.Estudiante;
+            ServicioscomboBox.SelectedValue = factura.ServicioId;
             this.DetalleFac = factura.Detalle;
-            CantidadtextBox.Text = Convert.ToString(factura.Cantidad);
-            PreciotextBox.Text = Convert.ToString(factura.Precio);
-            ImportetextBox.Text = Convert.ToString(factura.Importe);
             CargarGrid();
         }
 
@@ -102,7 +107,7 @@ namespace P2_AP1.UI.Registros
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-
+            Limpiar();
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -110,16 +115,17 @@ namespace P2_AP1.UI.Registros
             if (FacturadataGridView.DataSource != null)
                 this.DetalleFac = (List<Detalle>)FacturadataGridView.DataSource;
 
-            string nombres = ServiciosGen.Buscar((int)ServicioscomboBox.SelectedIndex).Nombres;
-
+            string nombres = ServiciosGen.Buscar((int)ServicioscomboBox.SelectedValue).Nombres;
+           
             this.DetalleFac.Add(
                 new Detalle(
+                   
                     servicioId: (int)ServicioscomboBox.SelectedValue,
                     nombre:nombres,
                     cantidad: Convert.ToInt32(CantidadtextBox.Text),
                     precio: Convert.ToDecimal(PreciotextBox.Text),
                     importe: Convert.ToDecimal(ImportetextBox.Text)
-
+                    
                     ));
             CargarGrid();
         }
@@ -170,6 +176,82 @@ namespace P2_AP1.UI.Registros
         private void RFactura_Load(object sender, EventArgs e)
         {
             LlenaCombobox();
+        }
+
+        private void ImportetextBox_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            Factura factura = new Factura();
+            int id =Convert.ToInt32( IdnumericUpDown.Value);
+
+            factura = FacturaBLL.Buscar(id);
+
+            if (factura != null)
+            {
+                LlenaCampo(factura);
+            }
+            else
+            {
+                MessageBox.Show("Registro no encontrado","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if (FacturadataGridView.Rows.Count > 0 && FacturadataGridView.CurrentRow != null)
+            {
+                DetalleFac.RemoveAt(FacturadataGridView.CurrentRow.Index);
+                CargarGrid();
+            }
+        }
+
+        private void CantidadtextBox_TextChanged(object sender, EventArgs e)
+        {
+           
+
+            
+        }
+
+        private void PreciotextBox_TextChanged(object sender, EventArgs e)
+        {
+            decimal cantidad = 0;
+            decimal precio = 0;
+
+            if (!string.IsNullOrWhiteSpace(PreciotextBox.Text))
+            {
+                precio = decimal.Parse(PreciotextBox.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(CantidadtextBox.Text))
+            {
+                cantidad = decimal.Parse(CantidadtextBox.Text);
+            }
+
+
+            decimal total = precio * cantidad;
+            ImportetextBox.Text = Convert.ToString(total);
+        }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            MyerrorProvider.Clear();
+            Contexto db = new Contexto();
+
+            int id = Convert.ToInt32(IdnumericUpDown.Value);
+
+            Limpiar();
+
+            if (FacturaBLL.Eliminar(id))
+            {
+                MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MyerrorProvider.SetError(IdnumericUpDown, "No se puede eliminar un registro que no existe");
+            }
         }
     }
 }

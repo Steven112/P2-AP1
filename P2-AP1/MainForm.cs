@@ -30,5 +30,11 @@ namespace P2_AP1
             Form categorias = new rServicios();
             categorias.Show();
         }
+
+        private void FacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form consulta = new cFactura();
+            consulta.Show();
+        }
     }
 }

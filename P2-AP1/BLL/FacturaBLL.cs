@@ -109,7 +109,7 @@ namespace P2_AP1.BLL
             }
             return factura;
         }
-        public List<Factura> GetList(Expression<Func<Factura, bool>> expression)
+        public static List<Factura> GetList(Expression<Func<Factura, bool>> expression)
         {
             List<Factura> Lista = new List<Factura>();
             Contexto db = new Contexto();

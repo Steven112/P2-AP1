@@ -16,10 +16,6 @@ namespace P2_AP1.Entidades
         public decimal Precio { get; set; }
         public decimal Importe { get; set; }
 
-        public Detalle()
-        {
-        }
-
         public Detalle(int servicioId, string nombre, int cantidad, decimal precio, decimal importe)
         {
             ServicioId = servicioId;
@@ -28,5 +24,12 @@ namespace P2_AP1.Entidades
             Precio = precio;
             Importe = importe;
         }
+
+        public Detalle()
+        {
+        }
     }
 }
+
+
+        

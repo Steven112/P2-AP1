@@ -1,6 +1,6 @@
 ﻿namespace P2_AP1.UI.Consultas
 {
-    partial class cArticulo
+    partial class cFactura
     {
         /// <summary>
         /// Required designer variable.
@@ -87,6 +87,7 @@
             this.Consultabutton.Text = "Consulta";
             this.Consultabutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Consultabutton.UseVisualStyleBackColor = true;
+            this.Consultabutton.Click += new System.EventHandler(this.Consultabutton_Click);
             // 
             // Hastalabel
             // 
@@ -128,7 +129,7 @@
             this.DesdedateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.DesdedateTimePicker.TabIndex = 20;
             // 
-            // cArticulo
+            // cFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -143,7 +144,7 @@
             this.Controls.Add(this.HastadateTimePicker);
             this.Controls.Add(this.ConsultadataGridView);
             this.Controls.Add(this.DesdedateTimePicker);
-            this.Name = "cArticulo";
+            this.Name = "cFactura";
             this.Text = "cArticulo";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             this.ResumeLayout(false);

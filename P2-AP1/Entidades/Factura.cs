@@ -16,24 +16,18 @@ namespace P2_AP1.Entidades
         public string Estudiante { get; set; }
         public virtual List<Detalle> Detalle { get; set; }
         public int ServicioId { get; set; }
-        public int Cantidad { get; set; }
-        public decimal Precio { get; set; }
-        public decimal Importe { get; set; }
+        
 
         public Factura()
         {
         }
 
-        public Factura(int facturaId, DateTime fecha, string estudiante, List<Detalle> detalle, int servicioId, int cantidad, decimal precio, decimal importe)
+        public Factura(int facturaId, DateTime fecha, string estudiante, int servicioId)
         {
             FacturaId = facturaId;
             Fecha = fecha;
             Estudiante = estudiante;
-            Detalle = detalle;
             ServicioId = servicioId;
-            Cantidad = cantidad;
-            Precio = precio;
-            Importe = importe;
         }
     }
 }

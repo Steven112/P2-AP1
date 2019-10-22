@@ -51,6 +51,9 @@
             this.button5 = new System.Windows.Forms.Button();
             this.MyerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.Guardarbutton = new System.Windows.Forms.Button();
+            this.TotaltextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             this.MygroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FacturadataGridView)).BeginInit();
@@ -145,6 +148,7 @@
             this.PreciotextBox.Name = "PreciotextBox";
             this.PreciotextBox.Size = new System.Drawing.Size(100, 20);
             this.PreciotextBox.TabIndex = 12;
+            this.PreciotextBox.TextChanged += new System.EventHandler(this.PreciotextBox_TextChanged);
             // 
             // ImportetextBox
             // 
@@ -153,6 +157,7 @@
             this.ImportetextBox.ReadOnly = true;
             this.ImportetextBox.Size = new System.Drawing.Size(100, 20);
             this.ImportetextBox.TabIndex = 13;
+            this.ImportetextBox.TextChanged += new System.EventHandler(this.ImportetextBox_TextChanged);
             // 
             // CantidadtextBox
             // 
@@ -160,6 +165,7 @@
             this.CantidadtextBox.Name = "CantidadtextBox";
             this.CantidadtextBox.Size = new System.Drawing.Size(100, 20);
             this.CantidadtextBox.TabIndex = 11;
+            this.CantidadtextBox.TextChanged += new System.EventHandler(this.CantidadtextBox_TextChanged);
             // 
             // label6
             // 
@@ -193,7 +199,7 @@
             this.FacturadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FacturadataGridView.Location = new System.Drawing.Point(15, 225);
             this.FacturadataGridView.Name = "FacturadataGridView";
-            this.FacturadataGridView.Size = new System.Drawing.Size(508, 150);
+            this.FacturadataGridView.Size = new System.Drawing.Size(508, 128);
             this.FacturadataGridView.TabIndex = 8;
             // 
             // Nuevobutton
@@ -218,6 +224,7 @@
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Buscarbutton
             // 
@@ -227,6 +234,7 @@
             this.Buscarbutton.TabIndex = 12;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // button5
             // 
@@ -254,11 +262,43 @@
             this.Guardarbutton.UseVisualStyleBackColor = true;
             this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click_1);
             // 
+            // TotaltextBox
+            // 
+            this.TotaltextBox.Location = new System.Drawing.Point(423, 359);
+            this.TotaltextBox.Name = "TotaltextBox";
+            this.TotaltextBox.Size = new System.Drawing.Size(100, 20);
+            this.TotaltextBox.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(382, 359);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Total";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::P2_AP1.Properties.Resources._5555555;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(15, 359);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Remover";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // rFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(535, 478);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TotaltextBox);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);
@@ -272,7 +312,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Id);
             this.Name = "rFactura";
-            this.Text = "rServicio";
+            this.Text = "rFactura";
             this.Load += new System.EventHandler(this.RFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             this.MygroupBox.ResumeLayout(false);
@@ -308,5 +348,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ErrorProvider MyerrorProvider;
         private System.Windows.Forms.Button Guardarbutton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TotaltextBox;
     }
 }
