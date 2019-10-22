@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using P2_AP1.BLL;
 using P2_AP1.DAL;
 using P2_AP1.Entidades;
+using P2_AP1.UI.Registros;
 
 namespace P2_AP1.UI.Registros
 {
     public partial class rServicios : Form
     {
         RepositorioBase<Servicios> GenericCategorias;
+        rFactura factura = new rFactura();
         public rServicios()
         {
             InitializeComponent();
@@ -104,7 +106,7 @@ namespace P2_AP1.UI.Registros
             {
                 MessageBox.Show("No Guardado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            factura.LlenaCombobox();
         }
         private void Limpiar()
         {
@@ -160,6 +162,7 @@ namespace P2_AP1.UI.Registros
             {
                 MyerrorProvider.SetError(IdnumericUpDown1, "No se puede eliminar la asignatura");
             }
+            factura.LlenaCombobox();
         }
     }
 }

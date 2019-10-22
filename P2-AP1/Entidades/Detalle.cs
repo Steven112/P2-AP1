@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace P2_AP1.Entidades
 {
     public class Detalle
     {
+        [Key]
         public int ServicioId { get; set; }
         public string Nombre { get; set; }
         public int Cantidad { get; set; }

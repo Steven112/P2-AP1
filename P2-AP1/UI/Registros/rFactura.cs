@@ -37,7 +37,7 @@ namespace P2_AP1.UI.Registros
             List<Servicios> Lista1 = Generic.GetList(p => true);
             ServicioscomboBox.DataSource = Lista1;
             ServicioscomboBox.DisplayMember = "Nombres";
-            ServicioscomboBox.SelectedValue = "ServiciosId";
+           // ServicioscomboBox.SelectedValue = "ServiciosId";
 
 
         }
@@ -110,17 +110,18 @@ namespace P2_AP1.UI.Registros
             if (FacturadataGridView.DataSource != null)
                 this.DetalleFac = (List<Detalle>)FacturadataGridView.DataSource;
 
-            string nombres = ServiciosGen.Buscar((int)ServicioscomboBox.SelectedValue).Nombres;
+            string nombres = ServiciosGen.Buscar((int)ServicioscomboBox.SelectedIndex).Nombres;
 
             this.DetalleFac.Add(
                 new Detalle(
                     servicioId: (int)ServicioscomboBox.SelectedValue,
-                    nombre: nombres,
+                    nombre:nombres,
                     cantidad: Convert.ToInt32(CantidadtextBox.Text),
                     precio: Convert.ToDecimal(PreciotextBox.Text),
                     importe: Convert.ToDecimal(ImportetextBox.Text)
 
                     ));
+            CargarGrid();
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -164,6 +165,11 @@ namespace P2_AP1.UI.Registros
             }
 
 
+        }
+
+        private void RFactura_Load(object sender, EventArgs e)
+        {
+            LlenaCombobox();
         }
     }
 }

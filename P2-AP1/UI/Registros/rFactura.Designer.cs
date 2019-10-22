@@ -273,6 +273,7 @@
             this.Controls.Add(this.Id);
             this.Name = "rFactura";
             this.Text = "rServicio";
+            this.Load += new System.EventHandler(this.RFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             this.MygroupBox.ResumeLayout(false);
             this.MygroupBox.PerformLayout();
